@@ -14,21 +14,19 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 // dead but useful code, in order to have translations
 __('noembed Media').__('Insert external media from Internet via noembed.com');
 
-$core->addBehavior('adminPostHeaders',array('noembedMediaBehaviors','jsLoad'));
-$core->addBehavior('adminPageHeaders',array('noembedMediaBehaviors','jsLoad'));
-$core->addBehavior('adminRelatedHeaders',array('noembedMediaBehaviors','jsLoad'));
-$core->addBehavior('adminDashboardHeaders',array('noembedMediaBehaviors','jsLoad'));
+$core->addBehavior('adminPostEditor',array('noembedMediaBehaviors','adminPostEditor'));
 
 class noembedMediaBehaviors
 {
-	public static function jsLoad()
+	public static function adminPostEditor($editor='',$context='')
 	{
-		return
-		'<script type="text/javascript" src="index.php?pf=noembedMedia/js/post.js"></script>'.
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title',__('External media (via noembed.com)')).
-		"\n//]]>\n".
-		"</script>\n";
+		if ($editor != 'dcLegacyEditor') return;
+
+		$res = '<script type="text/javascript" src="index.php?pf=noembedMedia/js/post.js"></script>'.
+			'<script type="text/javascript">'."\n"."//<![CDATA[\n".
+			dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title',__('External media (via noembed.com)')).
+			"\n//]]>\n"."</script>\n";
+
+		return $res;
 	}
 }
