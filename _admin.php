@@ -25,10 +25,13 @@ class noembedMediaBehaviors
 		$res = '';
 		if ($editor == 'dcLegacyEditor') {
 
-			$res = '<script type="text/javascript" src="index.php?pf=noembedMedia/js/post.js"></script>'.
-				'<script type="text/javascript">'."\n"."//<![CDATA[\n".
+			$res =
+				'<script type="text/javascript" src="index.php?pf=noembedMedia/js/post.js"></script>'.
+				'<script type="text/javascript">'."\n".
+				"//<![CDATA[\n".
 				dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title',__('External media (via noembed.com)')).
-				"\n//]]>\n"."</script>\n";
+				"\n//]]>\n".
+				"</script>\n";
 
 		} elseif ($editor == 'dcCKEditor') {
 
