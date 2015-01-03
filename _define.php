@@ -14,7 +14,7 @@ if (!defined('DC_RC_PATH')) { return; }
 $this->registerModule(
 	/* Name */			"noembed Media",
 	/* Description*/		"Insert external media from Internet via noembed.com",
-	/* Author */			"Franck Paul",
+	/* Author */			"Franck Paul and contributors",
 	/* Version */			'0.2',
 	array(
 		/* Permissions */	'permissions' =>	'usage,contentadmin',
