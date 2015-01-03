@@ -16,17 +16,45 @@ __('noembed Media').__('Insert external media from Internet via noembed.com');
 
 $core->addBehavior('adminPostEditor',array('noembedMediaBehaviors','adminPostEditor'));
 
+$core->addBehavior('ckeditorExtraPlugins', array('noembedMediaBehaviors', 'ckeditorExtraPlugins'));
+
 class noembedMediaBehaviors
 {
-	public static function adminPostEditor($editor='',$context='')
+	public static function adminPostEditor($editor='',$context='',array $tags=array())
 	{
-		if ($editor != 'dcLegacyEditor') return;
+		$res = '';
+		if ($editor == 'dcLegacyEditor') {
 
-		$res = '<script type="text/javascript" src="index.php?pf=noembedMedia/js/post.js"></script>'.
-			'<script type="text/javascript">'."\n"."//<![CDATA[\n".
-			dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title',__('External media (via noembed.com)')).
-			"\n//]]>\n"."</script>\n";
+			$res = '<script type="text/javascript" src="index.php?pf=noembedMedia/js/post.js"></script>'.
+				'<script type="text/javascript">'."\n"."//<![CDATA[\n".
+				dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title',__('External media (via noembed.com)')).
+				"\n//]]>\n"."</script>\n";
 
+		} elseif ($editor == 'dcCKEditor') {
+
+			$res =
+				'<script type="text/javascript">'."\n"."//<![CDATA[\n".
+				dcPage::jsVar('noembedmedia_title',__('External media (via noembed.com)')).
+				dcPage::jsVar('noembedmedia_tab_url',__('URL')).
+				dcPage::jsVar('noembedmedia_url',__('Page URL:')).
+				dcPage::jsVar('noembedmedia_url_empty',__('URL cannot be empty.')).
+				dcPage::jsVar('noembedmedia_tab_align',__('Alignment')).
+				dcPage::jsVar('noembedmedia_align',__('Media alignment:')).
+				dcPage::jsVar('noembedmedia_align_none',__('None')).
+				dcPage::jsVar('noembedmedia_align_left',__('Left')).
+				dcPage::jsVar('noembedmedia_align_right',__('Right')).
+				dcPage::jsVar('noembedmedia_align_center',__('Center')).
+				"\n//]]>\n"."</script>\n";
+
+		}
 		return $res;
 	}
+
+	public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context='') {
+        $extraPlugins[] = array(
+            'name' => 'noembedmedia',
+            'button' => 'noembedMedia',
+            'url' => DC_ADMIN_URL.'index.php?pf=noembedMedia/cke-addon/'
+        );
+    }
 }

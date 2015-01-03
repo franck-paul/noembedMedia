@@ -15,9 +15,10 @@ $this->registerModule(
 	/* Name */			"noembed Media",
 	/* Description*/		"Insert external media from Internet via noembed.com",
 	/* Author */			"Franck Paul",
-	/* Version */			'0.1',
+	/* Version */			'0.2',
 	array(
 		/* Permissions */	'permissions' =>	'usage,contentadmin',
-		/* Type */			'type' =>			'plugin'
+		/* Type */			'type' =>			'plugin',
+		/* Priority */		'priority' => 		1002
 	)
 );
