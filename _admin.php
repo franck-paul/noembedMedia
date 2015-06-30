@@ -20,7 +20,7 @@ $core->addBehavior('ckeditorExtraPlugins', array('noembedMediaBehaviors', 'ckedi
 
 class noembedMediaBehaviors
 {
-	public static function adminPostEditor($editor='',$context='',array $tags=array())
+	public static function adminPostEditor($editor='',$context='',array $tags=array(),$syntax='')
 	{
 		$res = '';
 		if ($editor == 'dcLegacyEditor') {
