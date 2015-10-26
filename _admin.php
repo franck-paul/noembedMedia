@@ -22,11 +22,13 @@ class noembedMediaBehaviors
 {
 	public static function adminPostEditor($editor='',$context='',array $tags=array(),$syntax='')
 	{
+		global $core;
+
 		$res = '';
 		if ($editor == 'dcLegacyEditor') {
 
 			$res =
-				'<script type="text/javascript" src="index.php?pf=noembedMedia/js/post.js"></script>'.
+				dcPage::jsLoad(urldecode(dcPage::getPF('noembedMedia/js/post.js')),$core->getVersion('noembedMedia')).
 				'<script type="text/javascript">'."\n".
 				"//<![CDATA[\n".
 				dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title',__('External media (via noembed.com)')).
