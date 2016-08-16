@@ -17,6 +17,7 @@ $this->registerModule(
 	/* Author */			"Franck Paul and contributors",
 	/* Version */			'0.3',
 	array(
+		/* Dependencies */	'requires' =>		array(array('core','2.8')),
 		/* Permissions */	'permissions' =>	'usage,contentadmin',
 		/* Type */			'type' =>			'plugin',
 		/* Priority */		'priority' => 		1002
