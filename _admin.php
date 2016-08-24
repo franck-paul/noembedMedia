@@ -14,12 +14,20 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 // dead but useful code, in order to have translations
 __('noembed Media').__('Insert external media from Internet via noembed.com');
 
+$core->addBehavior('adminPageHTTPHeaderCSP',array('noembedMediaBehaviors','adminPageHTTPHeaderCSP'));
 $core->addBehavior('adminPostEditor',array('noembedMediaBehaviors','adminPostEditor'));
-
 $core->addBehavior('ckeditorExtraPlugins', array('noembedMediaBehaviors', 'ckeditorExtraPlugins'));
 
 class noembedMediaBehaviors
 {
+	public static function adminPageHTTPHeaderCSP($csp)
+	{
+		if (!isset($csp['script-src'])) {
+			$csp['script-src'] = '';
+		}
+		$csp['script-src'] .= ' '.'https://noembed.com';
+	}
+
 	public static function adminPostEditor($editor='',$context='',array $tags=array(),$syntax='')
 	{
 		global $core;
