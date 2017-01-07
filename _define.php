@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			"noembed Media",
 	/* Description*/		"Insert external media from Internet via noembed.com",
 	/* Author */			"Franck Paul and contributors",
-	/* Version */			'0.4',
+	/* Version */			'0.4.1',
 	array(
 		/* Dependencies */	'requires' =>		array(array('core','2.10')),
 		/* Permissions */	'permissions' =>	'usage,contentadmin',

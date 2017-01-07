@@ -38,15 +38,13 @@ class noembedMediaBehaviors
 			$res =
 				dcPage::jsLoad(urldecode(dcPage::getPF('noembedMedia/js/post.js')),$core->getVersion('noembedMedia')).
 				'<script type="text/javascript">'."\n".
-				"//<![CDATA[\n".
 				dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title',__('External media (via noembed.com)')).
-				"\n//]]>\n".
 				"</script>\n";
 
 		} elseif ($editor == 'dcCKEditor') {
 
 			$res =
-				'<script type="text/javascript">'."\n"."//<![CDATA[\n".
+				'<script type="text/javascript">'."\n".
 				dcPage::jsVar('noembedmedia_title',__('External media (via noembed.com)')).
 				dcPage::jsVar('noembedmedia_tab_url',__('URL')).
 				dcPage::jsVar('noembedmedia_url',__('Page URL:')).
@@ -57,7 +55,7 @@ class noembedMediaBehaviors
 				dcPage::jsVar('noembedmedia_align_left',__('Left')).
 				dcPage::jsVar('noembedmedia_align_right',__('Right')).
 				dcPage::jsVar('noembedmedia_align_center',__('Center')).
-				"\n//]]>\n"."</script>\n";
+				"</script>\n";
 
 		}
 		return $res;
