@@ -1,25 +1,27 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of noembedMedia, a plugin for Dotclear 2.
-#
-# Copyright (c) Franck Paul and contributors
-#
-# Licensed under the GPL version 2.0 license.
-# A copy of this license is available in LICENSE file or at
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief noembedMedia, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author Franck Paul and contributors
+ *
+ * @copyright Franck Paul carnet.franck.paul@gmail.com
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"noembed Media",
-	/* Description*/		"Insert external media from Internet via noembed.com",
-	/* Author */			"Franck Paul and contributors",
-	/* Version */			'0.4.1',
-	array(
-		/* Dependencies */	'requires' =>		array(array('core','2.10')),
-		/* Permissions */	'permissions' =>	'usage,contentadmin',
-		/* Type */			'type' =>			'plugin',
-		/* Priority */		'priority' => 		1002
-	)
+    "noembed Media",                                       // Name
+    "Insert external media from Internet via noembed.com", // Description
+    "Franck Paul and contributors",                        // Author
+    '0.4.1',                                               // Version
+    array(
+        'requires'    => array(array('core', '2.10')), // Dependencies
+        'permissions' => 'usage,contentadmin',         // Permissions
+        'type'        => 'plugin',                     // Type
+        'priority'    => 1002                         // Priority
+    )
 );
