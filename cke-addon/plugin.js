@@ -1,3 +1,5 @@
+/*global CKEDITOR, noembedmedia_title */
+'use strict';
 CKEDITOR.plugins.add('noembedmedia', {
 	requires:"dialog",
 

@@ -1,3 +1,5 @@
+/*global $, CKEDITOR, noembedmedia_title, noembedmedia_tab_url, noembedmedia_url, noembedmedia_url_empty, noembedmedia_tab_align, noembedmedia_align, noembedmedia_align_none, noembedmedia_align_left, noembedmedia_align_right, noembedmedia_align_center */
+'use strict';
 CKEDITOR.dialog.add('noembedMediaDialog', function(editor) {
 	return {
 		title: noembedmedia_title,
