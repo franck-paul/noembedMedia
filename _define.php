@@ -17,11 +17,11 @@ $this->registerModule(
     "noembed Media",                                       // Name
     "Insert external media from Internet via noembed.com", // Description
     "Franck Paul and contributors",                        // Author
-    '0.4.1',                                               // Version
-    array(
-        'requires'    => array(array('core', '2.10')), // Dependencies
-        'permissions' => 'usage,contentadmin',         // Permissions
-        'type'        => 'plugin',                     // Type
-        'priority'    => 1002                         // Priority
-    )
+    '0.5',                                                 // Version
+    [
+        'requires'    => [['core', '2.13']],   // Dependencies
+        'permissions' => 'usage,contentadmin', // Permissions
+        'type'        => 'plugin',             // Type
+        'priority'    => 1002                 // Priority
+    ]
 );

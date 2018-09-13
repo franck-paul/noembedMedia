@@ -16,9 +16,9 @@ if (!defined('DC_CONTEXT_ADMIN')) {return;}
 // dead but useful code, in order to have translations
 __('noembed Media') . __('Insert external media from Internet via noembed.com');
 
-$core->addBehavior('adminPageHTTPHeaderCSP', array('noembedMediaBehaviors', 'adminPageHTTPHeaderCSP'));
-$core->addBehavior('adminPostEditor', array('noembedMediaBehaviors', 'adminPostEditor'));
-$core->addBehavior('ckeditorExtraPlugins', array('noembedMediaBehaviors', 'ckeditorExtraPlugins'));
+$core->addBehavior('adminPageHTTPHeaderCSP', ['noembedMediaBehaviors', 'adminPageHTTPHeaderCSP']);
+$core->addBehavior('adminPostEditor', ['noembedMediaBehaviors', 'adminPostEditor']);
+$core->addBehavior('ckeditorExtraPlugins', ['noembedMediaBehaviors', 'ckeditorExtraPlugins']);
 
 class noembedMediaBehaviors
 {
@@ -30,7 +30,7 @@ class noembedMediaBehaviors
         $csp['script-src'] .= ' ' . 'https://noembed.com';
     }
 
-    public static function adminPostEditor($editor = '', $context = '', array $tags = array(), $syntax = '')
+    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
     {
         global $core;
 
@@ -65,10 +65,10 @@ class noembedMediaBehaviors
 
     public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context = '')
     {
-        $extraPlugins[] = array(
+        $extraPlugins[] = [
             'name'   => 'noembedmedia',
             'button' => 'noembedMedia',
             'url'    => DC_ADMIN_URL . 'index.php?pf=noembedMedia/cke-addon/'
-        );
+        ];
     }
 }
