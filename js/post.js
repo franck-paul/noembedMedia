@@ -18,13 +18,13 @@ jsToolBar.prototype.elements.noembedmedia = {
       'menubar=no,resizable=yes,scrollbars=yes,status=no');
   },
   gethtml: function() {
-    var d = this.data;
+    const d = this.data;
 
     if (d.m_object == '') {
       return false;
     }
 
-    var res = '<div class="external-media"';
+    let res = '<div class="external-media"';
 
     if (d.alignment == 'left') {
       res += ' style="float: left; margin: 0 1em 1em 0;"';
@@ -38,7 +38,7 @@ jsToolBar.prototype.elements.noembedmedia = {
 
     if (d.title) {
       if (d.url) {
-        d.title = '<a href="' + d.url + '">' + d.title + '</a>';
+        d.title = `<a href="${d.url}">${d.title}</a>`;
       }
       res += '\n<br />' + d.title;
     }
@@ -59,21 +59,25 @@ jsToolBar.prototype.elements.noembedmedia.fn.markdown = function() {
 };
 
 jsToolBar.prototype.elements.noembedmedia.fncall.wiki = function() {
-  var html = this.elements.noembedmedia.gethtml();
+  const html = this.elements.noembedmedia.gethtml();
 
   this.encloseSelection('', '', function() {
-    return '\n///html\n' + html + '\n///\n';
+    return `
+///html
+${html}
+///
+`;
   });
 };
 jsToolBar.prototype.elements.noembedmedia.fncall.xhtml = function() {
-  var html = this.elements.noembedmedia.gethtml();
+  const html = this.elements.noembedmedia.gethtml();
 
   this.encloseSelection('', '', function() {
     return html;
   });
 };
 jsToolBar.prototype.elements.noembedmedia.fncall.markdown = function() {
-  var html = this.elements.noembedmedia.gethtml();
+  const html = this.elements.noembedmedia.gethtml();
 
   this.encloseSelection('', '', function() {
     return html;
