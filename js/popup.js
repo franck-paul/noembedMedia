@@ -2,11 +2,11 @@
 'use strict';
 
 $(function() {
-  $('#media-insert-cancel').click(function() {
+  $('#media-insert-cancel').on('click', function() {
     window.close();
   });
 
-  $('#media-insert-ok').click(function() {
+  $('#media-insert-ok').on('click', function() {
     const url = $('#media-insert-form').get(0).m_url.value;
     $.getJSON(`https://noembed.com/embed?url=${url}&callback=?`,
       function(data) {

@@ -39,14 +39,14 @@ class noembedMediaBehaviors
 
             $res =
             dcPage::jsLoad(urldecode(dcPage::getPF('noembedMedia/js/post.js')), $core->getVersion('noembedMedia')) .
-            '<script type="text/javascript">' . "\n" .
+            '<script>' . "\n" .
             dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title', __('External media (via noembed.com)')) .
                 "</script>\n";
 
         } elseif ($editor == 'dcCKEditor') {
 
             $res =
-            '<script type="text/javascript">' . "\n" .
+            '<script>' . "\n" .
             dcPage::jsVar('noembedmedia_title', __('External media (via noembed.com)')) .
             dcPage::jsVar('noembedmedia_tab_url', __('URL')) .
             dcPage::jsVar('noembedmedia_url', __('Page URL:')) .
