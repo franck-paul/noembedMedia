@@ -1,33 +1,33 @@
-/*global $, CKEDITOR, noembedmedia_title, noembedmedia_tab_url, noembedmedia_url, noembedmedia_url_empty, noembedmedia_tab_align, noembedmedia_align, noembedmedia_align_none, noembedmedia_align_left, noembedmedia_align_right, noembedmedia_align_center */
+/*global $, CKEDITOR, dotclear */
 'use strict';
 CKEDITOR.dialog.add('noembedMediaDialog', function(editor) {
 	return {
-		title: noembedmedia_title,
+		title: dotclear.ck_noembedmedia.title,
 		minWidth: 400,
 		minHeight: 150,
 		contents: [
 			{
 				id: 'tab-url',
-				label: noembedmedia_tab_url,
+				label: dotclear.ck_noembedmedia.tab_url,
 				elements: [{
 					id: 'url',
 					type: 'text',
-					label: noembedmedia_url,
-					validate: CKEDITOR.dialog.validate.notEmpty(noembedmedia_url_empty)
+					label: dotclear.ck_noembedmedia.url,
+					validate: CKEDITOR.dialog.validate.notEmpty(dotclear.ck_noembedmedia.url_empty)
 				}]
 			},
 			{
 				id: 'tab-alignment',
-				label: noembedmedia_tab_align,
+				label: dotclear.ck_noembedmedia.tab_align,
 				elements: [{
 					type: 'radio',
 					id: 'alignment',
-					label: noembedmedia_align,
+					label: dotclear.ck_noembedmedia.align,
 					items: [
-						[ noembedmedia_align_none, 'none' ],
-						[ noembedmedia_align_left, 'left' ],
-						[ noembedmedia_align_right, 'right'],
-						[ noembedmedia_align_center, 'center'] ],
+						[ dotclear.ck_noembedmedia.align_none, 'none' ],
+						[ dotclear.ck_noembedmedia.align_left, 'left' ],
+						[ dotclear.ck_noembedmedia.align_right, 'right'],
+						[ dotclear.ck_noembedmedia.align_center, 'center'] ],
 					'default': 'none'
 				}]
 			}

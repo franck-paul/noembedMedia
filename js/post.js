@@ -1,9 +1,9 @@
-/*global jsToolBar */
+/*global jsToolBar, getData */
 'use strict';
 
 jsToolBar.prototype.elements.noembedmedia = {
   type: 'button',
-  title: 'External Media (via noembed.com)',
+  title: getData('dc_editor_noembedmedia').title || 'External Media (via noembed.com)',
   icon: 'index.php?pf=noembedMedia/bt_video.png',
   fn: {},
   fncall: {},

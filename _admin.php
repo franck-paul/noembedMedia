@@ -38,26 +38,25 @@ class noembedMediaBehaviors
         if ($editor == 'dcLegacyEditor') {
 
             $res =
-            dcPage::jsLoad(urldecode(dcPage::getPF('noembedMedia/js/post.js')), $core->getVersion('noembedMedia')) .
-            '<script>' . "\n" .
-            dcPage::jsVar('jsToolBar.prototype.elements.noembedmedia.title', __('External media (via noembed.com)')) .
-                "</script>\n";
+            $res =
+            dcPage::jsJson('dc_editor_noembedmedia', ['title' => __('External media')]) .
+            dcPage::jsLoad(urldecode(dcPage::getPF('noembedMedia/js/post.js')), $core->getVersion('noembedMedia'));
 
         } elseif ($editor == 'dcCKEditor') {
 
             $res =
-            '<script>' . "\n" .
-            dcPage::jsVar('noembedmedia_title', __('External media (via noembed.com)')) .
-            dcPage::jsVar('noembedmedia_tab_url', __('URL')) .
-            dcPage::jsVar('noembedmedia_url', __('Page URL:')) .
-            dcPage::jsVar('noembedmedia_url_empty', __('URL cannot be empty.')) .
-            dcPage::jsVar('noembedmedia_tab_align', __('Alignment')) .
-            dcPage::jsVar('noembedmedia_align', __('Media alignment:')) .
-            dcPage::jsVar('noembedmedia_align_none', __('None')) .
-            dcPage::jsVar('noembedmedia_align_left', __('Left')) .
-            dcPage::jsVar('noembedmedia_align_right', __('Right')) .
-            dcPage::jsVar('noembedmedia_align_center', __('Center')) .
-                "</script>\n";
+            dcPage::jsJson('ck_editor_noembedmedia', [
+                'title'        => __('External media'),
+                'tab_url'      => __('URL'),
+                'url'          => __('Page URL:'),
+                'url_empty'    => __('URL cannot be empty.'),
+                'tab_align'    => __('Alignment'),
+                'align'        => __('Media alignment:'),
+                'align_none'   => __('None'),
+                'align_left'   => __('Left'),
+                'align_right'  => __('Right'),
+                'align_center' => __('Center')
+            ]);
 
         }
         return $res;
