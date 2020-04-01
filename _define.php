@@ -17,12 +17,15 @@ $this->registerModule(
     "noembed Media",                                       // Name
     "Insert external media from Internet via noembed.com", // Description
     "Franck Paul and contributors",                        // Author
-    '0.5',                                                 // Version
+    '0.6',                                                 // Version
     [
         'requires'    => [['core', '2.16']],                            // Dependencies
         'permissions' => 'usage,contentadmin',                          // Permissions
         'type'        => 'plugin',                                      // Type
         'priority'    => 1002,                                          // Priority
-        'support'     => 'https://github.com/franck-paul/noembedMedia' // Support URL
+        'support'     => 'https://github.com/franck-paul/noembedMedia', // Support URL
+        'settings'    => [                                              // Settings
+            'self' => false
+        ]
     ]
 );
