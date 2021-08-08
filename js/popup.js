@@ -1,22 +1,20 @@
 /*global $ */
 'use strict';
 
-$(function() {
-  $('#media-insert-cancel').on('click', function() {
+$(function () {
+  $('#media-insert-cancel').on('click', function () {
     window.close();
   });
 
-  $('#media-insert-ok').on('click', function() {
+  $('#media-insert-ok').on('click', function () {
     const url = $('#media-insert-form').get(0).m_url.value;
-    $.getJSON(`https://noembed.com/embed?url=${url}&callback=?`,
-      function(data) {
-        sendClose(data.html);
-      });
+    $.getJSON(`https://noembed.com/embed?url=${url}&callback=?`, function (data) {
+      sendClose(data.html);
+    });
   });
 });
 
 function sendClose(object) {
-
   const insert_form = $('#media-insert-form').get(0);
   if (insert_form == undefined) {
     return;

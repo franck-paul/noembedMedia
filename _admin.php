@@ -10,8 +10,9 @@
  * @copyright Franck Paul carnet.franck.paul@gmail.com
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 // dead but useful code, in order to have translations
 __('noembed Media') . __('Insert external media from Internet via noembed.com');
@@ -36,16 +37,10 @@ class noembedMediaBehaviors
 
         $res = '';
         if ($editor == 'dcLegacyEditor') {
-
-            $res =
-            $res =
-            dcPage::jsJson('dc_editor_noembedmedia', ['title' => __('External media')]) .
+            $res = $res = dcPage::jsJson('dc_editor_noembedmedia', ['title' => __('External media')]) .
             dcPage::jsLoad(urldecode(dcPage::getPF('noembedMedia/js/post.js')), $core->getVersion('noembedMedia'));
-
         } elseif ($editor == 'dcCKEditor') {
-
-            $res =
-            dcPage::jsJson('ck_editor_noembedmedia', [
+            $res = dcPage::jsJson('ck_editor_noembedmedia', [
                 'title'        => __('External media'),
                 'tab_url'      => __('URL'),
                 'url'          => __('Page URL:'),
@@ -57,8 +52,8 @@ class noembedMediaBehaviors
                 'align_right'  => __('Right'),
                 'align_center' => __('Center')
             ]);
-
         }
+
         return $res;
     }
 
