@@ -1,8 +1,8 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="noembedMedia">
-    <name>noembed Media</name>
+    <name>Insert external media from Internet via noembed.com</name>
     <version>0.6</version>
-    <author>Franck Paul and contributors</author>
+    <author>Insert external media from Internet via noembed.com</author>
     <desc>Insert external media from Internet via noembed.com</desc>
     <file>https://github.com/franck-paul/noembedMedia/releases/download/0.6/plugin-noembedMedia-0.6.zip</file>
     <da:dcmin>2.17</da:dcmin>
