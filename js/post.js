@@ -4,22 +4,22 @@
 jsToolBar.prototype.elements.noembedmedia = {
   type: 'button',
   title: dotclear.getData('dc_editor_noembedmedia').title || 'External Media (via noembed.com)',
-  icon: 'index.php?pf=noembedMedia/bt_video.png',
+  icon: 'index.php?pf=noembedMedia/icon.svg',
   fn: {},
   fncall: {},
   open_url: 'plugin.php?p=noembedMedia&popup=1',
   data: {},
-  popup: function () {
+  popup() {
     window.the_toolbar = this;
     this.elements.noembedmedia.data = {};
 
     window.open(
       this.elements.noembedmedia.open_url,
       'dc_popup',
-      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' + 'menubar=no,resizable=yes,scrollbars=yes,status=no'
+      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,menubar=no,resizable=yes,scrollbars=yes,status=no',
     );
   },
-  gethtml: function () {
+  gethtml() {
     const d = this.data;
 
     if (d.m_object == '') {
@@ -36,13 +36,13 @@ jsToolBar.prototype.elements.noembedmedia = {
       res += ' style="margin: 1em auto; text-align: center;"';
     }
 
-    res += '>\n' + d.m_object;
+    res += `>\n${d.m_object}`;
 
     if (d.title) {
       if (d.url) {
         d.title = `<a href="${d.url}">${d.title}</a>`;
       }
-      res += '\n<br />' + d.title;
+      res += `\n<br />${d.title}`;
     }
 
     res += '\n</div>';
@@ -63,25 +63,23 @@ jsToolBar.prototype.elements.noembedmedia.fn.markdown = function () {
 jsToolBar.prototype.elements.noembedmedia.fncall.wiki = function () {
   const html = this.elements.noembedmedia.gethtml();
 
-  this.encloseSelection('', '', function () {
-    return `
-///html
-${html}
-///
-`;
-  });
+  this.encloseSelection(
+    '',
+    '',
+    () => `
+  ///html
+  ${html}
+  ///
+  `,
+  );
 };
 jsToolBar.prototype.elements.noembedmedia.fncall.xhtml = function () {
   const html = this.elements.noembedmedia.gethtml();
 
-  this.encloseSelection('', '', function () {
-    return html;
-  });
+  this.encloseSelection('', '', () => html);
 };
 jsToolBar.prototype.elements.noembedmedia.fncall.markdown = function () {
   const html = this.elements.noembedmedia.gethtml();
 
-  this.encloseSelection('', '', function () {
-    return html;
-  });
+  this.encloseSelection('', '', () => html);
 };

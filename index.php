@@ -49,7 +49,7 @@ if (!$m_url) {
         'none'   => [__('None'), 0],
         'left'   => [__('Left'), 0],
         'right'  => [__('Right'), 0],
-        'center' => [__('Center'), 1]
+        'center' => [__('Center'), 1],
     ];
 
     echo '<h3>' . __('Media alignment') . '</h3>';

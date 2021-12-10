@@ -1,14 +1,14 @@
 /*global $ */
 'use strict';
 
-$(function () {
-  $('#media-insert-cancel').on('click', function () {
+$(() => {
+  $('#media-insert-cancel').on('click', () => {
     window.close();
   });
 
-  $('#media-insert-ok').on('click', function () {
+  $('#media-insert-ok').on('click', () => {
     const url = $('#media-insert-form').get(0).m_url.value;
-    $.getJSON(`https://noembed.com/embed?url=${url}&callback=?`, function (data) {
+    $.getJSON(`https://noembed.com/embed?url=${url}&callback=?`, (data) => {
       sendClose(data.html);
     });
   });

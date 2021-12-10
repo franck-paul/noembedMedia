@@ -18,18 +18,18 @@ $this->registerModule(
     'noembed Media',                                       // Name
     'Insert external media from Internet via noembed.com', // Description
     'Franck Paul and contributors',                        // Author
-    '0.6',                                                 // Version
+    '0.7',                                                 // Version
     [
         'requires'    => [['core', '2.17']],                            // Dependencies
         'permissions' => 'usage,contentadmin',                          // Permissions
         'type'        => 'plugin',                                      // Type
         'priority'    => 1002,                                          // Priority
         'settings'    => [                                              // Settings
-            'self' => false
+            'self' => false,
         ],
 
         'details'    => 'https://open-time.net/?q=noembedMedia',       // Details URL
         'support'    => 'https://github.com/franck-paul/noembedMedia', // Support URL
-        'repository' => 'https://raw.githubusercontent.com/franck-paul/noembedMedia/master/dcstore.xml'
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/noembedMedia/master/dcstore.xml',
     ]
 );

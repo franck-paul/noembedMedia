@@ -50,7 +50,7 @@ class noembedMediaBehaviors
                 'align_none'   => __('None'),
                 'align_left'   => __('Left'),
                 'align_right'  => __('Right'),
-                'align_center' => __('Center')
+                'align_center' => __('Center'),
             ]);
         }
 
@@ -62,7 +62,7 @@ class noembedMediaBehaviors
         $extraPlugins[] = [
             'name'   => 'noembedmedia',
             'button' => 'noembedMedia',
-            'url'    => DC_ADMIN_URL . 'index.php?pf=noembedMedia/cke-addon/'
+            'url'    => DC_ADMIN_URL . 'index.php?pf=noembedMedia/cke-addon/',
         ];
     }
 }
