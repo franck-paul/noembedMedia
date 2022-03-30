@@ -63,15 +63,7 @@ jsToolBar.prototype.elements.noembedmedia.fn.markdown = function () {
 jsToolBar.prototype.elements.noembedmedia.fncall.wiki = function () {
   const html = this.elements.noembedmedia.gethtml();
 
-  this.encloseSelection(
-    '',
-    '',
-    () => `
-  ///html
-  ${html}
-  ///
-  `,
-  );
+  this.encloseSelection('', '', () => `\n///html\n${html}\n///\n`);
 };
 jsToolBar.prototype.elements.noembedmedia.fncall.xhtml = function () {
   const html = this.elements.noembedmedia.gethtml();
