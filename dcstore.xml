@@ -1,11 +1,11 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="noembedMedia">
     <name>noembed Media</name>
-    <version>0.7</version>
+    <version>0.7.1</version>
     <author>Franck Paul and contributors</author>
     <desc>Insert external media from Internet via noembed.com</desc>
-    <file>https://github.com/franck-paul/noembedMedia/releases/download/0.7/plugin-noembedMedia-0.7.zip</file>
-    <da:dcmin>2.17</da:dcmin>
+    <file>https://github.com/franck-paul/noembedMedia/releases/download/0.7.1/plugin-noembedMedia-0.7.1.zip</file>
+    <da:dcmin>2.21</da:dcmin>
     <da:details>https://open-time.net/?q=noembedMedia</da:details>
     <da:support>https://github.com/franck-paul/noembedMedia</da:support>
   </module>
