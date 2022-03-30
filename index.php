@@ -21,7 +21,7 @@ $m_url    = !empty($_POST['m_url']) ? $_POST['m_url'] : null;
 <html>
 <head>
   <title><?php echo __('External media selector (via noembed.com)') ?></title>
-  <?php echo dcPage::jsLoad(urldecode(dcPage::getPF('noembedMedia/js/popup.js')), $core->getVersion('noembedMedia')); ?>
+  <?php echo dcPage::jsModuleLoad('noembedMedia/js/popup.js', $core->getVersion('noembedMedia')); ?>
 
 </head>
 

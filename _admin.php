@@ -38,7 +38,7 @@ class noembedMediaBehaviors
         $res = '';
         if ($editor == 'dcLegacyEditor') {
             $res = $res = dcPage::jsJson('dc_editor_noembedmedia', ['title' => __('External media')]) .
-            dcPage::jsLoad(urldecode(dcPage::getPF('noembedMedia/js/post.js')), $core->getVersion('noembedMedia'));
+            dcPage::jsModuleLoad('noembedMedia/js/post.js', $core->getVersion('noembedMedia'));
         } elseif ($editor == 'dcCKEditor') {
             $res = dcPage::jsJson('ck_editor_noembedmedia', [
                 'title'        => __('External media'),
