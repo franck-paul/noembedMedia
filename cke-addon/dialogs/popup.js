@@ -37,9 +37,8 @@ CKEDITOR.dialog.add('noembedMediaDialog', (editor) => ({
     },
   ],
   onOk() {
-    const dialog = this;
-    const url = dialog.getValueOf('tab-url', 'url');
-    const alignment = dialog.getValueOf('tab-alignment', 'alignment');
+    const url = this.getValueOf('tab-url', 'url');
+    const alignment = this.getValueOf('tab-alignment', 'alignment');
 
     $.getJSON(`https://noembed.com/embed?url=${url}&callback=?`, (data) => {
       const div = editor.document.createElement('div');

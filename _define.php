@@ -18,9 +18,9 @@ $this->registerModule(
     'noembed Media',                                       // Name
     'Insert external media from Internet via noembed.com', // Description
     'Franck Paul and contributors',                        // Author
-    '0.7.1',
+    '0.8',
     [
-        'requires'    => [['core', '2.21']],                            // Dependencies
+        'requires'    => [['core', '2.23']],                            // Dependencies
         'permissions' => 'usage,contentadmin',                          // Permissions
         'type'        => 'plugin',                                      // Type
         'priority'    => 1002,                                          // Priority

@@ -14,19 +14,19 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$new_version = $core->plugins->moduleInfo('noembedMedia', 'version');
-$old_version = $core->getVersion('noembedMedia');
+$new_version = dcCore::app()->plugins->moduleInfo('noembedMedia', 'version');
+$old_version = dcCore::app()->getVersion('noembedMedia');
 
 if (version_compare($old_version, $new_version, '>=')) {
     return;
 }
 
 try {
-    $core->setVersion('noembedMedia', $new_version);
+    dcCore::app()->setVersion('noembedMedia', $new_version);
 
     return true;
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
 return false;

@@ -3,7 +3,7 @@
 
 dotclear.ck_noembedmedia = dotclear.getData('ck_editor_noembedmedia');
 
-(() => {
+{
   CKEDITOR.plugins.add('noembedmedia', {
     requires: 'dialog',
 
@@ -19,4 +19,4 @@ dotclear.ck_noembedmedia = dotclear.getData('ck_editor_noembedmedia');
       });
     },
   });
-})();
+}

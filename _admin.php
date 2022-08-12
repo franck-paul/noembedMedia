@@ -17,9 +17,9 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 // dead but useful code, in order to have translations
 __('noembed Media') . __('Insert external media from Internet via noembed.com');
 
-$core->addBehavior('adminPageHTTPHeaderCSP', ['noembedMediaBehaviors', 'adminPageHTTPHeaderCSP']);
-$core->addBehavior('adminPostEditor', ['noembedMediaBehaviors', 'adminPostEditor']);
-$core->addBehavior('ckeditorExtraPlugins', ['noembedMediaBehaviors', 'ckeditorExtraPlugins']);
+dcCore::app()->addBehavior('adminPageHTTPHeaderCSP', ['noembedMediaBehaviors', 'adminPageHTTPHeaderCSP']);
+dcCore::app()->addBehavior('adminPostEditor', ['noembedMediaBehaviors', 'adminPostEditor']);
+dcCore::app()->addBehavior('ckeditorExtraPlugins', ['noembedMediaBehaviors', 'ckeditorExtraPlugins']);
 
 class noembedMediaBehaviors
 {
@@ -33,12 +33,10 @@ class noembedMediaBehaviors
 
     public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
     {
-        global $core;
-
         $res = '';
         if ($editor == 'dcLegacyEditor') {
             $res = $res = dcPage::jsJson('dc_editor_noembedmedia', ['title' => __('External media')]) .
-            dcPage::jsModuleLoad('noembedMedia/js/post.js', $core->getVersion('noembedMedia'));
+            dcPage::jsModuleLoad('noembedMedia/js/post.js', dcCore::app()->getVersion('noembedMedia'));
         } elseif ($editor == 'dcCKEditor') {
             $res = dcPage::jsJson('ck_editor_noembedmedia', [
                 'title'        => __('External media'),

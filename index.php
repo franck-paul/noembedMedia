@@ -21,7 +21,7 @@ $m_url    = !empty($_POST['m_url']) ? $_POST['m_url'] : null;
 <html>
 <head>
   <title><?php echo __('External media selector (via noembed.com)') ?></title>
-  <?php echo dcPage::jsModuleLoad('noembedMedia/js/popup.js', $core->getVersion('noembedMedia')); ?>
+  <?php echo dcPage::jsModuleLoad('noembedMedia/js/popup.js', dcCore::app()->getVersion('noembedMedia')); ?>
 
 </head>
 
@@ -38,7 +38,7 @@ if (!$m_url) {
     form::field('m_url', 50, 250, html::escapeHTML($m_url)) . '</p>' .
 
     '<p><input type="submit" value="' . __('ok') . '" />' .
-    $core->formNonce() . '</p>' .
+    dcCore::app()->formNonce() . '</p>' .
         '</form>';
 } else {
     echo
