@@ -17,10 +17,6 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 // dead but useful code, in order to have translations
 __('noembed Media') . __('Insert external media from Internet via noembed.com');
 
-dcCore::app()->addBehavior('adminPageHTTPHeaderCSP', ['noembedMediaBehaviors', 'adminPageHTTPHeaderCSP']);
-dcCore::app()->addBehavior('adminPostEditor', ['noembedMediaBehaviors', 'adminPostEditor']);
-dcCore::app()->addBehavior('ckeditorExtraPlugins', ['noembedMediaBehaviors', 'ckeditorExtraPlugins']);
-
 class noembedMediaBehaviors
 {
     public static function adminPageHTTPHeaderCSP($csp)
@@ -31,7 +27,7 @@ class noembedMediaBehaviors
         $csp['script-src'] .= ' ' . 'https://noembed.com';
     }
 
-    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
+    public static function adminPostEditor($editor = '')
     {
         $res = '';
         if ($editor == 'dcLegacyEditor') {
@@ -55,7 +51,7 @@ class noembedMediaBehaviors
         return $res;
     }
 
-    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context = '')
+    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins)
     {
         $extraPlugins[] = [
             'name'   => 'noembedmedia',
@@ -64,3 +60,7 @@ class noembedMediaBehaviors
         ];
     }
 }
+
+dcCore::app()->addBehavior('adminPageHTTPHeaderCSP', [noembedMediaBehaviors::class, 'adminPageHTTPHeaderCSP']);
+dcCore::app()->addBehavior('adminPostEditor', [noembedMediaBehaviors::class, 'adminPostEditor']);
+dcCore::app()->addBehavior('ckeditorExtraPlugins', [noembedMediaBehaviors::class, 'ckeditorExtraPlugins']);

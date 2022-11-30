@@ -15,21 +15,24 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-    'noembed Media',                                       // Name
-    'Insert external media from Internet via noembed.com', // Description
-    'Franck Paul and contributors',                        // Author
-    '0.8',
+    'noembed Media',
+    'Insert external media from Internet via noembed.com',
+    'Franck Paul and contributors',
+    '1.0',
     [
-        'requires'    => [['core', '2.23']],                            // Dependencies
-        'permissions' => 'usage,contentadmin',                          // Permissions
-        'type'        => 'plugin',                                      // Type
-        'priority'    => 1002,                                          // Priority
-        'settings'    => [                                              // Settings
+        'requires'    => [['core', '2.24']],
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'type'     => 'plugin',
+        'priority' => 1002,
+        'settings' => [
             'self' => false,
         ],
 
-        'details'    => 'https://open-time.net/?q=noembedMedia',       // Details URL
-        'support'    => 'https://github.com/franck-paul/noembedMedia', // Support URL
+        'details'    => 'https://open-time.net/?q=noembedMedia',
+        'support'    => 'https://github.com/franck-paul/noembedMedia',
         'repository' => 'https://raw.githubusercontent.com/franck-paul/noembedMedia/master/dcstore.xml',
     ]
 );
