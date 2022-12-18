@@ -31,7 +31,7 @@ echo '<h2>' . __('External media selector (via noembed.com)') . '</h2>';
 
 if (!$m_url) {
     echo
-    '<form action="' . $p_url . '&amp;popup=1" method="post">' .
+    '<form action="' . dcCore::app()->admin->getPageURL() . '&amp;popup=1" method="post">' .
     '<p>' . __('See <a href="https://noembed.com/#supported-sites">this site</a> for supported services') . '</p>' .
     '<p>' . __('Please enter the URL of the page containing the media you want to include in your post.') . '</p>' .
     '<p><label for="m_url">' . __('Page URL:') . '</label> ' .
