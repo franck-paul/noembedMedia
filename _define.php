@@ -18,7 +18,7 @@ $this->registerModule(
     'noembed Media',
     'Insert external media from Internet via noembed.com',
     'Franck Paul and contributors',
-    '1.0',
+    '1.1',
     [
         'requires'    => [['core', '2.24']],
         'permissions' => dcCore::app()->auth->makePermissions([
