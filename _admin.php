@@ -60,7 +60,8 @@ class noembedMediaBehaviors
         ];
     }
 }
-
-dcCore::app()->addBehavior('adminPageHTTPHeaderCSP', [noembedMediaBehaviors::class, 'adminPageHTTPHeaderCSP']);
-dcCore::app()->addBehavior('adminPostEditor', [noembedMediaBehaviors::class, 'adminPostEditor']);
-dcCore::app()->addBehavior('ckeditorExtraPlugins', [noembedMediaBehaviors::class, 'ckeditorExtraPlugins']);
+dcCore::app()->addBehaviors([
+    'adminPageHTTPHeaderCSP' => [noembedMediaBehaviors::class, 'adminPageHTTPHeaderCSP'],
+    'adminPostEditor'        => [noembedMediaBehaviors::class, 'adminPostEditor'],
+    'ckeditorExtraPlugins'   => [noembedMediaBehaviors::class, 'ckeditorExtraPlugins'],
+]);
