@@ -10,6 +10,9 @@
  * @copyright Franck Paul carnet.franck.paul@gmail.com
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
+
+use Dotclear\Helper\Html\Html;
+
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
@@ -35,7 +38,7 @@ if (!$m_url) {
     '<p>' . __('See <a href="https://noembed.com/#supported-sites">this site</a> for supported services') . '</p>' .
     '<p>' . __('Please enter the URL of the page containing the media you want to include in your post.') . '</p>' .
     '<p><label for="m_url">' . __('Page URL:') . '</label> ' .
-    form::field('m_url', 50, 250, html::escapeHTML($m_url)) . '</p>' .
+    form::field('m_url', 50, 250, Html::escapeHTML($m_url)) . '</p>' .
 
     '<p><input type="submit" value="' . __('ok') . '" />' .
     dcCore::app()->formNonce() . '</p>' .
@@ -63,12 +66,12 @@ if (!$m_url) {
     echo
     '<h3>' . __('Media title') . '</h3>' .
     '<p><label for="m_title">' . __('Title:') . ' ' .
-    form::field('m_title', 50, 250, html::escapeHTML($m_title)) . '</label></p>';
+    form::field('m_title', 50, 250, Html::escapeHTML($m_title)) . '</label></p>';
 
     echo
     '<p><a id="media-insert-cancel" class="button" href="#">' . __('Cancel') . '</a> - ' .
     '<a id="media-insert-ok" class="button" href="#">' . __('Insert') . '</a>' .
-    form::hidden('m_url', html::escapeHTML($m_url)) .
+    form::hidden('m_url', Html::escapeHTML($m_url)) .
         '</form>';
 }
 
