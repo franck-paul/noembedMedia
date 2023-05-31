@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2 noembedMedia module\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-03 11:34+0100\n"
+"POT-Creation-Date: 2023-05-31 11:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,53 +16,97 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../hg-plugins/noembedMedia//_admin.php:15
+#: ../git-plugins/noembedMedia/src/Backend.php:27
 msgid "Insert external media from Internet via noembed.com"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//_admin.php:15
+#: ../git-plugins/noembedMedia/src/Backend.php:27
 msgid "noembed Media"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//_admin.php:30
-#: ../hg-plugins/noembedMedia//_admin.php:37
-msgid "External media (via noembed.com)"
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:35
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:39
+msgid "External media"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//_admin.php:39
-#: ../hg-plugins/noembedMedia//index.php:35
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:40
+msgid "URL"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:41
+#: ../git-plugins/noembedMedia/src/Manage.php:96
 msgid "Page URL:"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//_admin.php:40
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:42
 msgid "URL cannot be empty."
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//_admin.php:41
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:43
 msgid "Alignment"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//_admin.php:42
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:44
 msgid "Media alignment:"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//index.php:20
-#: ../hg-plugins/noembedMedia//index.php:27
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:45
+#: ../git-plugins/noembedMedia/src/Manage.php:107
+msgid "None"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:46
+#: ../git-plugins/noembedMedia/src/Manage.php:108
+msgid "Left"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:47
+#: ../git-plugins/noembedMedia/src/Manage.php:109
+msgid "Right"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/BackendBehaviors.php:48
+#: ../git-plugins/noembedMedia/src/Manage.php:110
+msgid "Center"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/Manage.php:67
+#: ../git-plugins/noembedMedia/src/Manage.php:72
 msgid "External media selector (via noembed.com)"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//index.php:33
+#: ../git-plugins/noembedMedia/src/Manage.php:85
+msgid "Supported media services"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/Manage.php:87
 msgid "See <a href=\"https://noembed.com/#supported-sites\">this site</a> for supported services"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//index.php:34
-msgid "Please enter the URL of the page containing the media you want to include in your post."
+#: ../git-plugins/noembedMedia/src/Manage.php:90
+msgid "Please enter the URL of the page containing the video you want to include in your post."
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//index.php:55
+#: ../git-plugins/noembedMedia/src/Manage.php:100
+msgid "Ok"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/Manage.php:123
 msgid "Media alignment"
 msgstr ""
 
-#: ../hg-plugins/noembedMedia//index.php:64
+#: ../git-plugins/noembedMedia/src/Manage.php:127
 msgid "Media title"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/Manage.php:133
+msgid "Title:"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/Manage.php:139
+msgid "Insert"
+msgstr ""
+
+#: ../git-plugins/noembedMedia/src/Manage.php:142
+msgid "Cancel"
 msgstr ""
