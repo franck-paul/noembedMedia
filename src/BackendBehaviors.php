@@ -10,14 +10,15 @@
  * @copyright Franck Paul carnet.franck.paul@gmail.com
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-if (!defined('DC_CONTEXT_ADMIN')) {
-    return;
-}
+declare(strict_types=1);
 
-// dead but useful code, in order to have translations
-__('noembed Media') . __('Insert external media from Internet via noembed.com');
+namespace Dotclear\Plugin\noembedMedia;
 
-class noembedMediaBehaviors
+use ArrayObject;
+use dcCore;
+use dcPage;
+
+class BackendBehaviors
 {
     public static function adminPageHTTPHeaderCSP($csp)
     {
@@ -32,7 +33,7 @@ class noembedMediaBehaviors
         $res = '';
         if ($editor == 'dcLegacyEditor') {
             $res = $res = dcPage::jsJson('dc_editor_noembedmedia', ['title' => __('External media')]) .
-            dcPage::jsModuleLoad('noembedMedia/js/post.js', dcCore::app()->getVersion('noembedMedia'));
+            dcPage::jsModuleLoad(My::id() . '/js/post.js', dcCore::app()->getVersion(My::id()));
         } elseif ($editor == 'dcCKEditor') {
             $res = dcPage::jsJson('ck_editor_noembedmedia', [
                 'title'        => __('External media'),
@@ -56,12 +57,7 @@ class noembedMediaBehaviors
         $extraPlugins[] = [
             'name'   => 'noembedmedia',
             'button' => 'noembedMedia',
-            'url'    => DC_ADMIN_URL . 'index.php?pf=noembedMedia/cke-addon/',
+            'url'    => dcPage::getPF(My::id() . '/cke-addon/'), // DC_ADMIN_URL . 'index.php?pf=noembedMedia/cke-addon/',
         ];
     }
 }
-dcCore::app()->addBehaviors([
-    'adminPageHTTPHeaderCSP' => [noembedMediaBehaviors::class, 'adminPageHTTPHeaderCSP'],
-    'adminPostEditor'        => [noembedMediaBehaviors::class, 'adminPostEditor'],
-    'ckeditorExtraPlugins'   => [noembedMediaBehaviors::class, 'ckeditorExtraPlugins'],
-]);
