@@ -57,7 +57,7 @@ class BackendBehaviors
         $extraPlugins[] = [
             'name'   => 'noembedmedia',
             'button' => 'noembedMedia',
-            'url'    => dcPage::getPF(My::id() . '/cke-addon/'), // DC_ADMIN_URL . 'index.php?pf=noembedMedia/cke-addon/',
+            'url'    => urldecode(DC_ADMIN_URL . dcPage::getPF(My::id() . '/cke-addon/')),
         ];
     }
 }
