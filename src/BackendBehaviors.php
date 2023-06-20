@@ -32,7 +32,11 @@ class BackendBehaviors
     {
         $res = '';
         if ($editor == 'dcLegacyEditor') {
-            $res = $res = dcPage::jsJson('dc_editor_noembedmedia', ['title' => __('External media')]) .
+            $res = $res = dcPage::jsJson('dc_editor_noembedmedia', [
+                'title'    => __('External media'),
+                'icon'     => urldecode(dcPage::getPF(My::id() . '/icon.svg')),
+                'open_url' => dcCore::app()->adminurl->get('admin.plugin.' . My::id(), ['popup' => 1], '&'),
+            ]) .
             dcPage::jsModuleLoad(My::id() . '/js/post.js', dcCore::app()->getVersion(My::id()));
         } elseif ($editor == 'dcCKEditor') {
             $res = dcPage::jsJson('ck_editor_noembedmedia', [
