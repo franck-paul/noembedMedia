@@ -43,14 +43,25 @@ CKEDITOR.dialog.add('noembedMediaDialog', (editor) => ({
     $.getJSON(`https://noembed.com/embed?url=${url}&callback=?`, (data) => {
       const div = editor.document.createElement('div');
       let style = '';
-      div.setAttribute('class', 'external-media');
-      if (alignment == 'left') {
-        style = 'float: left; margin: 0 1em 1em 0;';
-      } else if (alignment == 'right') {
-        style = 'float: right; margin: 0 0 1em 1em;';
-      } else if (alignment == 'center') {
-        style = 'margin: 1em auto; text-align: center;';
+      let classes = 'external_media';
+      if (dotclear.ck_noembedmedia.style.class) {
+        if (alignment == 'left') {
+          classes += ' ' + dotclear.ck_noembedmedia.style.left;
+        } else if (alignment == 'right') {
+          classes += ' ' + dotclear.ck_noembedmedia.style.right;
+        } else if (alignment == 'center') {
+          classes += ' ' + dotclear.ck_noembedmedia.style.center;
+        }
+      } else {
+        if (alignment == 'left') {
+          style = 'float: left; margin: 0 1em 1em 0;';
+        } else if (alignment == 'right') {
+          style = 'float: right; margin: 0 0 1em 1em;';
+        } else if (alignment == 'center') {
+          style = 'margin: 1em auto; text-align: center;';
+        }
       }
+      div.setAttribute('class', classes);
       if (style != '') {
         div.setAttribute('style', style);
       }
