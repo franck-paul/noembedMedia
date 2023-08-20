@@ -15,8 +15,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\noembedMedia;
 
 use dcCore;
-use dcNsProcess;
-use dcPage;
+use Dotclear\Core\Backend\Notices;
+use Dotclear\Core\Backend\Page;
+use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -29,17 +30,14 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 
-class Manage extends dcNsProcess
+class Manage extends Process
 {
-    protected static $init = false; /** @deprecated since 2.27 */
     /**
      * Initializes the page.
      */
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::MANAGE);
-
-        return static::$init;
+        return self::status(My::checkContext(My::MANAGE));
     }
 
     /**
@@ -47,7 +45,7 @@ class Manage extends dcNsProcess
      */
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
@@ -59,21 +57,21 @@ class Manage extends dcNsProcess
      */
     public static function render(): void
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return;
         }
 
-        $head = dcPage::jsModuleLoad(My::id() . '/js/popup.js');
+        $head = My::jsLoad('popup.js');
 
-        dcPage::openModule(__('External media selector (via noembed.com)'), $head);
+        Page::openModule(__('External media selector (via noembed.com)'), $head);
 
-        echo dcPage::breadcrumb(
+        echo Page::breadcrumb(
             [
                 Html::escapeHTML(dcCore::app()->blog->name)     => '',
                 __('External media selector (via noembed.com)') => '',
             ]
         );
-        echo dcPage::notices();
+        echo Notices::getNotices();
 
         // Form
         $m_url = !empty($_POST['m_url']) ? $_POST['m_url'] : null;
@@ -146,6 +144,6 @@ class Manage extends dcNsProcess
             ->render();
         }
 
-        dcPage::closeModule();
+        Page::closeModule();
     }
 }

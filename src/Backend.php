@@ -15,31 +15,28 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\noembedMedia;
 
 use dcCore;
-use dcNsProcess;
+use Dotclear\Core\Process;
 
-class Backend extends dcNsProcess
+class Backend extends Process
 {
-    protected static $init = false; /** @deprecated since 2.27 */
     public static function init(): bool
     {
-        static::$init = My::checkContext(My::BACKEND);
-
         // dead but useful code, in order to have translations
         __('noembed Media') . __('Insert external media from Internet via noembed.com');
 
-        return static::$init;
+        return self::status(My::checkContext(My::BACKEND));
     }
 
     public static function process(): bool
     {
-        if (!static::$init) {
+        if (!self::status()) {
             return false;
         }
 
         dcCore::app()->addBehaviors([
-            'adminPageHTTPHeaderCSP' => [BackendBehaviors::class, 'adminPageHTTPHeaderCSP'],
-            'adminPostEditor'        => [BackendBehaviors::class, 'adminPostEditor'],
-            'ckeditorExtraPlugins'   => [BackendBehaviors::class, 'ckeditorExtraPlugins'],
+            'adminPageHTTPHeaderCSP' => BackendBehaviors::adminPageHTTPHeaderCSP(...),
+            'adminPostEditor'        => BackendBehaviors::adminPostEditor(...),
+            'ckeditorExtraPlugins'   => BackendBehaviors::ckeditorExtraPlugins(...),
         ]);
 
         return true;
