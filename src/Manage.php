@@ -63,7 +63,7 @@ class Manage extends Process
 
         $head = My::jsLoad('popup.js');
 
-        Page::openModule(__('External media selector (via noembed.com)'), $head);
+        Page::openModule(My::name(), $head);
 
         echo Page::breadcrumb(
             [
@@ -97,7 +97,7 @@ class Manage extends Process
                     (new Para())->items([
                         (new Submit(['frmsubmit']))
                             ->value(__('Ok')),
-                        dcCore::app()->formNonce(false),
+                        ... My::hiddenFields(),
                     ]),
                 ])
             ->render();
