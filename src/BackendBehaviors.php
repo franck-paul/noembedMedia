@@ -20,22 +20,29 @@ use Dotclear\Core\Backend\Page;
 
 class BackendBehaviors
 {
-    public static function adminPageHTTPHeaderCSP($csp)
+    /**
+     * @param      ArrayObject<string, string>   $csp    The content security policies
+     *
+     * @return     string
+     */
+    public static function adminPageHTTPHeaderCSP(ArrayObject $csp): string
     {
         if (!isset($csp['script-src'])) {
             $csp['script-src'] = '';
         }
         $csp['script-src'] .= ' ' . 'https://noembed.com';
+
+        return '';
     }
 
-    public static function adminPostEditor($editor = '')
+    public static function adminPostEditor(string $editor = ''): string
     {
         $res = '';
         if ($editor == 'dcLegacyEditor') {
             $data = [
                 'title'    => __('External media'),
                 'icon'     => urldecode(Page::getPF(My::id() . '/icon.svg')),
-                'open_url' => dcCore::app()->admin->url->get('admin.plugin.' . My::id(), [
+                'open_url' => dcCore::app()->adminurl->get('admin.plugin.' . My::id(), [
                     'popup' => 1,
                 ], '&'),
                 'style' => [  // List of classes used
@@ -72,12 +79,19 @@ class BackendBehaviors
         return $res;
     }
 
-    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins)
+    /**
+     * @param      ArrayObject<int, array<string, string>>  $extraPlugins  The extra plugins
+     *
+     * @return     string
+     */
+    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins): string
     {
-        $extraPlugins[] = [
+        $extraPlugins->append([
             'name'   => 'noembedmedia',
             'button' => 'noembedMedia',
             'url'    => urldecode(DC_ADMIN_URL . Page::getPF(My::id() . '/cke-addon/')),
-        ];
+        ]);
+
+        return '';
     }
 }
