@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\noembedMedia;
 
 use ArrayObject;
-use dcCore;
+use Dotclear\App;
 use Dotclear\Core\Backend\Page;
 
 class BackendBehaviors
@@ -42,7 +42,7 @@ class BackendBehaviors
             $data = [
                 'title'    => __('External media'),
                 'icon'     => urldecode(Page::getPF(My::id() . '/icon.svg')),
-                'open_url' => dcCore::app()->adminurl->get('admin.plugin.' . My::id(), [
+                'open_url' => App::backend()->url()->get('admin.plugin.' . My::id(), [
                     'popup' => 1,
                 ], '&'),
                 'style' => [  // List of classes used
