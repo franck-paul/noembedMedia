@@ -30,7 +30,8 @@ class BackendBehaviors
         if (!isset($csp['script-src'])) {
             $csp['script-src'] = '';
         }
-        $csp['script-src'] .= ' ' . 'https://noembed.com';
+
+        $csp['script-src'] .= ' https://noembed.com';
 
         return '';
     }
@@ -52,7 +53,9 @@ class BackendBehaviors
                     'right'  => 'media-right',
                 ],
             ];
-            $res = $res = Page::jsJson('dc_editor_noembedmedia', $data) .
+            $res = Page::jsJson('dc_editor_noembedmedia', $data) .
+            My::jsLoad('post.js');
+            $res = Page::jsJson('dc_editor_noembedmedia', $data) .
             My::jsLoad('post.js');
         } elseif ($editor == 'dcCKEditor') {
             $data = [
