@@ -15,7 +15,7 @@ dotclear.ck_noembedmedia = dotclear.getData('ck_editor_noembedmedia');
       editor.ui.addButton('noembedMedia', {
         label: dotclear.ck_noembedmedia.title,
         command: 'noembedMediaCommand',
-        icon: `${this.path}icons/icon.png`,
+        icon: `${this.path}icons/icon.svg`,
       });
     },
   });
