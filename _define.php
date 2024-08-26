@@ -26,6 +26,6 @@ $this->registerModule(
 
         'details'    => 'https://open-time.net/?q=noembedMedia',
         'support'    => 'https://github.com/franck-paul/noembedMedia',
-        'repository' => 'https://raw.githubusercontent.com/franck-paul/noembedMedia/master/dcstore.xml',
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/noembedMedia/main/dcstore.xml',
     ]
 );
