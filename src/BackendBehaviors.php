@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @brief noembedMedia, a plugin for Dotclear 2
  *
@@ -22,8 +23,6 @@ class BackendBehaviors
 {
     /**
      * @param      ArrayObject<string, string>   $csp    The content security policies
-     *
-     * @return     string
      */
     public static function adminPageHTTPHeaderCSP(ArrayObject $csp): string
     {
@@ -39,7 +38,7 @@ class BackendBehaviors
     public static function adminPostEditor(string $editor = ''): string
     {
         $res = '';
-        if ($editor == 'dcLegacyEditor') {
+        if ($editor === 'dcLegacyEditor') {
             $data = [
                 'title'    => __('External media'),
                 'icon'     => urldecode(Page::getPF(My::id() . '/icon.svg')),
@@ -55,9 +54,7 @@ class BackendBehaviors
             ];
             $res = Page::jsJson('dc_editor_noembedmedia', $data) .
             My::jsLoad('post.js');
-            $res = Page::jsJson('dc_editor_noembedmedia', $data) .
-            My::jsLoad('post.js');
-        } elseif ($editor == 'dcCKEditor') {
+        } elseif ($editor === 'dcCKEditor') {
             $data = [
                 'title'        => __('External media'),
                 'tab_url'      => __('URL'),
@@ -84,8 +81,6 @@ class BackendBehaviors
 
     /**
      * @param      ArrayObject<int, array<string, string>>  $extraPlugins  The extra plugins
-     *
-     * @return     string
      */
     public static function ckeditorExtraPlugins(ArrayObject $extraPlugins): string
     {
