@@ -40,9 +40,10 @@ class BackendBehaviors
         $res = '';
         if ($editor === 'dcLegacyEditor') {
             $data = [
-                'title'    => __('External media'),
-                'icon'     => urldecode(Page::getPF(My::id() . '/icon.svg')),
-                'open_url' => App::backend()->url()->get('admin.plugin.' . My::id(), [
+                'title'     => __('External media'),
+                'icon'      => urldecode(Page::getPF(My::id() . '/icon.svg')),
+                'icon_dark' => urldecode(Page::getPF(My::id() . '/icon-dark.svg')),
+                'open_url'  => App::backend()->url()->get('admin.plugin.' . My::id(), [
                     'popup' => 1,
                 ], '&'),
                 'style' => [  // List of classes used
