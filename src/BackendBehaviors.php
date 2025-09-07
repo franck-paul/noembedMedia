@@ -81,7 +81,7 @@ class BackendBehaviors
     }
 
     /**
-     * @param      ArrayObject<int, array<string, string>>  $extraPlugins  The extra plugins
+     * @param      ArrayObject<int, array{name:string, url:string, button:string}>  $extraPlugins  The extra plugins
      */
     public static function ckeditorExtraPlugins(ArrayObject $extraPlugins): string
     {
