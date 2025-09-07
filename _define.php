@@ -15,9 +15,9 @@ $this->registerModule(
     'noembed Media',
     'Insert external media from Internet via noembed.com',
     'Franck Paul and contributors',
-    '4.5',
+    '5.0',
     [
-        'date'        => '2025-06-05T14:36:24+0200',
+        'date'        => '2025-09-07T15:53:19+0200',
         'requires'    => [['core', '2.36']],
         'permissions' => 'My',
         'type'        => 'plugin',
