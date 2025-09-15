@@ -4,6 +4,15 @@
 dotclear.ready(() => {
   const data = dotclear.getData('dc_editor_noembedmedia');
 
+  jsToolBar.prototype.elements.noembedSpaceBefore = {
+    type: 'space',
+    format: {
+      wysiwyg: true,
+      wiki: true,
+      xhtml: true,
+      markdown: true,
+    },
+  };
   jsToolBar.prototype.elements.noembedmedia = {
     type: 'button',
     title: data.title || 'External Media (via noembed.com)',
@@ -51,6 +60,15 @@ dotclear.ready(() => {
 
       res += '\n</div>';
       return res;
+    },
+  };
+  jsToolBar.prototype.elements.noembedSpaceAfter = {
+    type: 'space',
+    format: {
+      wysiwyg: true,
+      wiki: true,
+      xhtml: true,
+      markdown: true,
     },
   };
 
