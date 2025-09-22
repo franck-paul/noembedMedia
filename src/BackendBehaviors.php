@@ -17,7 +17,6 @@ namespace Dotclear\Plugin\noembedMedia;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Page;
 
 class BackendBehaviors
 {
@@ -41,8 +40,8 @@ class BackendBehaviors
         if ($editor === 'dcLegacyEditor') {
             $data = [
                 'title'     => __('External media'),
-                'icon'      => urldecode(Page::getPF(My::id() . '/icon.svg')),
-                'icon_dark' => urldecode(Page::getPF(My::id() . '/icon-dark.svg')),
+                'icon'      => urldecode((string) App::backend()->page()->getPF(My::id() . '/icon.svg')),
+                'icon_dark' => urldecode((string) App::backend()->page()->getPF(My::id() . '/icon-dark.svg')),
                 'open_url'  => App::backend()->url()->get('admin.plugin.' . My::id(), [
                     'popup' => 1,
                 ], '&'),
@@ -53,7 +52,7 @@ class BackendBehaviors
                     'right'  => 'media-right',
                 ],
             ];
-            $res = Page::jsJson('dc_editor_noembedmedia', $data) .
+            $res = App::backend()->page()->jsJson('dc_editor_noembedmedia', $data) .
             My::jsLoad('post.js');
         } elseif ($editor === 'dcCKEditor') {
             $data = [
@@ -74,7 +73,7 @@ class BackendBehaviors
                     'right'  => 'media-right',
                 ],
             ];
-            $res = Page::jsJson('ck_editor_noembedmedia', $data);
+            $res = App::backend()->page()->jsJson('ck_editor_noembedmedia', $data);
         }
 
         return $res;
@@ -88,7 +87,7 @@ class BackendBehaviors
         $extraPlugins->append([
             'name'   => 'noembedmedia',
             'button' => 'noembedMedia',
-            'url'    => urldecode(App::config()->adminUrl() . Page::getPF(My::id() . '/cke-addon/')),
+            'url'    => urldecode(App::config()->adminUrl() . App::backend()->page()->getPF(My::id() . '/cke-addon/')),
         ]);
 
         return '';
