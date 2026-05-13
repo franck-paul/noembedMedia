@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
     $.getJSON(`https://noembed.com/embed?url=${url}&callback=?`, (data) => {
       sendClose(data.html);
     }).fail((xhr) => {
-      window.alert(`${dotclear.external_media.request_error + xhr.status} ${xhr.statusText}`);
+      globalThis.alert(`${dotclear.external_media.request_error + xhr.status} ${xhr.statusText}`);
     });
   });
 });

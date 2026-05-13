@@ -1,10 +1,10 @@
-/*global jsToolBar, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
   const data = dotclear.getData('dc_editor_noembedmedia');
 
-  jsToolBar.prototype.elements.noembedmedia = {
+  dotclear.ToolBar.prototype.elements.noembedmedia = {
     group: 'media',
     type: 'button',
     title: data.title || 'External Media (via noembed.com)',
@@ -15,7 +15,7 @@ dotclear.ready(() => {
     open_url: data.open_url,
     data: {},
     popup() {
-      window.the_toolbar = this;
+      globalThis.the_toolbar = this;
       this.elements.noembedmedia.data = {};
 
       window.open(
@@ -55,27 +55,27 @@ dotclear.ready(() => {
     },
   };
 
-  jsToolBar.prototype.elements.noembedmedia.fn.wiki = function () {
+  dotclear.ToolBar.prototype.elements.noembedmedia.fn.wiki = function () {
     this.elements.noembedmedia.popup.call(this);
   };
-  jsToolBar.prototype.elements.noembedmedia.fn.xhtml = function () {
+  dotclear.ToolBar.prototype.elements.noembedmedia.fn.xhtml = function () {
     this.elements.noembedmedia.popup.call(this);
   };
-  jsToolBar.prototype.elements.noembedmedia.fn.markdown = function () {
+  dotclear.ToolBar.prototype.elements.noembedmedia.fn.markdown = function () {
     this.elements.noembedmedia.popup.call(this);
   };
 
-  jsToolBar.prototype.elements.noembedmedia.fncall.wiki = function () {
+  dotclear.ToolBar.prototype.elements.noembedmedia.fncall.wiki = function () {
     const html = this.elements.noembedmedia.gethtml();
 
     this.encloseSelection('', '', () => `\n///html\n${html}\n///\n`);
   };
-  jsToolBar.prototype.elements.noembedmedia.fncall.xhtml = function () {
+  dotclear.ToolBar.prototype.elements.noembedmedia.fncall.xhtml = function () {
     const html = this.elements.noembedmedia.gethtml();
 
     this.encloseSelection('', '', () => html);
   };
-  jsToolBar.prototype.elements.noembedmedia.fncall.markdown = function () {
+  dotclear.ToolBar.prototype.elements.noembedmedia.fncall.markdown = function () {
     const html = this.elements.noembedmedia.gethtml();
 
     this.encloseSelection('', '', () => html);
