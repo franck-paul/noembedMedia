@@ -25,10 +25,7 @@ class BackendBehaviors
      */
     public static function adminPageHTTPHeaderCSP(ArrayObject $csp): string
     {
-        if (!isset($csp['script-src'])) {
-            $csp['script-src'] = '';
-        }
-
+        $csp['script-src'] ??= '';
         $csp['script-src'] .= ' https://noembed.com';
 
         return '';
