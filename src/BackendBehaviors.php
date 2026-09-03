@@ -21,12 +21,12 @@ use Dotclear\App;
 class BackendBehaviors
 {
     /**
-     * @param      ArrayObject<string, string>   $csp    The content security policies
+     * @param      ArrayObject<string, string>   $arrayObject    The content security policies
      */
-    public static function adminPageHTTPHeaderCSP(ArrayObject $csp): string
+    public static function adminPageHTTPHeaderCSP(ArrayObject $arrayObject): string
     {
-        $csp['script-src'] ??= '';
-        $csp['script-src'] .= ' https://noembed.com';
+        $arrayObject['script-src'] ??= '';
+        $arrayObject['script-src'] .= ' https://noembed.com';
 
         return '';
     }
@@ -77,11 +77,11 @@ class BackendBehaviors
     }
 
     /**
-     * @param      ArrayObject<int, array{name:string, url:string, button:string}>  $extraPlugins  The extra plugins
+     * @param      ArrayObject<int, array{name:string, url:string, button:string}>  $arrayObject  The extra plugins
      */
-    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins): string
+    public static function ckeditorExtraPlugins(ArrayObject $arrayObject): string
     {
-        $extraPlugins->append([
+        $arrayObject->append([
             'name'   => 'noembedmedia',
             'button' => 'noembedMedia',
             'url'    => urldecode(App::config()->adminUrl() . App::backend()->page()->getPF(My::id() . '/cke-addon/')),
