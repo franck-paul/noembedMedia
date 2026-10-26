@@ -37,8 +37,8 @@ class BackendBehaviors
         if ($editor === 'dcLegacyEditor') {
             $data = [
                 'title'     => __('External media'),
-                'icon'      => urldecode((string) App::backend()->page()->getPF(My::id() . '/icon.svg')),
-                'icon_dark' => urldecode((string) App::backend()->page()->getPF(My::id() . '/icon-dark.svg')),
+                'icon'      => urldecode(App::backend()->page()->getPF(My::id() . '/icon.svg')),
+                'icon_dark' => urldecode(App::backend()->page()->getPF(My::id() . '/icon-dark.svg')),
                 'open_url'  => App::backend()->url()->get('admin.plugin.' . My::id(), [
                     'popup' => 1,
                 ], '&'),
