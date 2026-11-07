@@ -1,11 +1,11 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="noembedMedia">
     <name>noembed Media</name>
-    <version>6.0</version>
+    <version>6.1</version>
     <author>Franck Paul and contributors</author>
     <desc>Insert external media from Internet via noembed.com</desc>
-    <date>2026-08-03T10:06:46+0200</date>
-    <file>https://github.com/franck-paul/noembedMedia/releases/download/6.0/plugin-noembedMedia-6.0.zip</file>
+    <date>2026-11-07T17:00:45+0100</date>
+    <file>https://github.com/franck-paul/noembedMedia/releases/download/6.1/plugin-noembedMedia-6.1.zip</file>
     <da:dcmin>2.39</da:dcmin>
     <da:details>https://dotclear.org/plugin/detail/noembedMedia</da:details>
     <da:support>https://github.com/franck-paul/noembedMedia</da:support>
